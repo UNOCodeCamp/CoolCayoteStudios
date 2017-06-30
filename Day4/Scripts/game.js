@@ -6,6 +6,7 @@ game.startTime = null;
 game.isOver = false;
 game.level = 0;
 
+
 game.start = function()
 {
     var level = maps[game.level]
@@ -14,6 +15,9 @@ game.start = function()
     game.startTime = Date.now();
     input.start();
     game.main();
+    var audio=new Audio("Assets/Juhani Junkala [Retro Game Music Pack] Level 1.wav");
+            console.log(audio)
+            audio.play()
 };
 
 // The main game loop
@@ -23,8 +27,13 @@ game.main = function()
     {
         game.update();
         renderer.draw();
-        window.requestAnimationFrame(game.main);
     }
+    else
+    {
+        hud.drawGameOver();
+    }
+        window.requestAnimationFrame(game.main);
+    
 
 };
 
@@ -54,7 +63,15 @@ game.update = function()
         if ( hazard.isTouching(player) )
         {
             game.isOver = true;
+            
         }
-    }
-};
+            
+        }
+    
+ };
 
+
+
+var audio = new Audio("Assets/sfx_deathscream_human1.wav");
+console.log(audio);
+audio.play();

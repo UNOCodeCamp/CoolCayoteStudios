@@ -8,7 +8,7 @@ function Enemy()
 	this.image = new Image();
 	this.image.src = "assets/pizza.png"
 	this.width = 64;
-	this.height = 6;
+	this.height = 64;
 	this.age = Date.now()
 
 	this.draw = function()

@@ -33,6 +33,7 @@ player.draw = function()
     {
         var sprite = player.poses[player.currentPose];
         player.image = sprite.getImage();
+        
     }
     renderer.ctx.drawImage( player.image, player.x, player.y, player.width, player.height ); 
 };
@@ -68,6 +69,9 @@ player.move = function(x, y)
     { 
         player.isJumping = true;
         player.velY = -player.speed*2;
+        var audio=new Audio("Assets/sfx_movement_jump2.wav");
+            console.log(audio);
+            audio.play();
     }
 
     //Apply terminal velocity
